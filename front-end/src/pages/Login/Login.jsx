@@ -31,17 +31,16 @@ export default function Login() {
   };
 
   return (
-    <div className="Container">
-      <div className="cont-login">
+    <div className="container">
+      <div className="reg-cont">
         <h1>Login</h1>
 
         <form onSubmit={login}>
           <input
             type="email"
-            placeholder="Enter Your Email"
             value={form.email}
+            placeholder="Enter Your Email"
             onChange={(e) => setForm({ ...form, email: e.target.value })}
-            required
           />
 
           <input
@@ -49,7 +48,6 @@ export default function Login() {
             placeholder="Enter Your Password"
             value={form.password}
             onChange={(e) => setForm({ ...form, password: e.target.value })}
-            required
           />
 
           <button type="submit" disabled={loading}>
@@ -60,7 +58,6 @@ export default function Login() {
         <h6>
           Don't have an account?{" "}
           <span
-            style={{ color: "blue", cursor: "pointer" }}
             onClick={() => navigate("/register")}
           >
             Register
@@ -68,5 +65,6 @@ export default function Login() {
         </h6>
       </div>
     </div>
+
   );
 }

@@ -6,7 +6,7 @@ import auth from "../middleware/authmiddleware.js";
 
 const router = express.Router();
 
-/* ================= REGISTER ================= */
+/* REGISTER */
 router.post("/register", async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -32,7 +32,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-/* ================= LOGIN ================= */
+/*  LOGIN */
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -42,7 +42,7 @@ router.post("/login", async (req, res) => {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    // 🔴 THIS WAS MISSING
+    
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid credentials" });
@@ -68,7 +68,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-/* ================= DASHBOARD ================= */
+/* DASHBOARD  */
 router.get("/dashboard", auth, (req, res) => {
   res.json({
     message: `Welcome ${req.user.name}`,
