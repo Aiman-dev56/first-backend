@@ -20,10 +20,11 @@ export default function Dashboard(){
 
         setUser(JSON.parse(storedUser));
 
-        axios.get("http://localhost:5000/api/auth/dashboard", {
-            headers:{
-                Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
+        axios
+      .get("/api/auth/dashboard", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
         })
         .then((res) => setData(res.data.message))
         .catch(() => {

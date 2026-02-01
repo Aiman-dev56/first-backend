@@ -12,9 +12,9 @@ export default function Login() {
     e.preventDefault();
     setLoading(true);
 
-    try {
+   try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "/api/auth/login",
         form
       );
 

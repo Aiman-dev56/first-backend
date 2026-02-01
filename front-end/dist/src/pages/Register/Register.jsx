@@ -8,8 +8,11 @@ export default function Register() {
   const navigate = useNavigate();
 
   const submit = async () => {
-    try {
-      const res = await axios.post("http://localhost:5000/api/auth/register", form);
+      try {
+      await axios.post(
+        "/api/auth/register",
+        form
+      );
 
       alert("Registered Successfully!");
       navigate("/login");
